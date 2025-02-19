@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personality Predictor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<header>
+    <div class="logo">Logo</div>
+    <div class="login">Login</div>
+  </header>
+<body>
+      <h2 class="page-title">PERSONALITY PREDICTION</h2>
+    <div class="container">
+    <!-- Description Box Section -->
+    <div class="form-section">
+      <!-- Description Textarea Box -->
+      <textarea class="input-text" placeholder="Enter a social media post or short text..." id="inputText"></textarea>
+    </div>
+
+    <!-- Prediction Card -->
+   
+      <button class="predict-btn" onclick="predictPersonality()">Predict Personality</button>
+      <div class="result" id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <!-- Personality Result Modal -->
+<div id="personalityModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="personalityTitle">Your Personality Type</h2>
+        <p id="personalityDescription"></p>
+    </div>
+</div>
+</body>
+</html>
