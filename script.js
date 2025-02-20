@@ -6,39 +6,48 @@ document.getElementById("inputText").addEventListener("input", () => {
 });
 
 function predictPersonality() {
-    const text = document.getElementById('inputText').value;
-    const result = document.getElementById('result');
+    let resultDiv = document.getElementById("result");
+    let infpCard = document.getElementById("infpCard");
+    let text = document.getElementById('inputText').value.trim();
+    let outputBox = document.getElementById("outputBox");
 
-    if (!text) {
-        result.innerText = "Enter some text to predict personality.";
-        result.style.color = "brown";
+    // Hide the card when input is empty or default message is displayed
+    if (!text || text === "Enter some text to predict personality.") {
+        resultDiv.innerText = "Enter some text to predict personality.";
+        resultDiv.style.color = "brown";
+        infpCard.style.display = "none"; // Hide the card
+        outputBox.innerHTML = "<p style='color: red;'>Please enter some text!</p>";
         return;
     }
-        // Dummy personality prediction (replace with actual logic)
-        const personalities = {
-            "INTJ": "The Mastermind - Strategic, logical, and ambitious.",
-            "ENFP": "The Campaigner - Enthusiastic, creative, and free-spirited.",
-            "ISTP": "The Virtuoso - Bold, practical, and experimental.",
-            "INFJ": "The Advocate - Insightful, deep, and inspiring."
-        };
-    
-        // Simulate a random prediction (replace with ML model response)
-        const personalityTypes = Object.keys(personalities);
-        const randomType = personalityTypes[Math.floor(Math.random() * personalityTypes.length)];
-    
-        // Display personality type in modal
-        document.getElementById('personalityTitle').innerText = You are a ${randomType}!;
-        document.getElementById('personalityDescription').innerText = personalities[randomType];
-    
-        // Show the modal
-        document.getElementById('personalityModal').style.display = "flex";
-    }
-    
-    // Function to close the modal
-    function closeModal() {
-        document.getElementById('personalityModal').style.display = "none";
+
+    // Simulated model output (replace with actual model response)
+    let predictedPersonality = "INFP"; // Assume model returns this
+
+    resultDiv.innerText = "Predicted Personality: " + predictedPersonality;
+
+    if (predictedPersonality === "INFP") {
+        infpCard.style.display = "block"; // Show the INFP card
+    } else {
+        infpCard.style.display = "none"; // Hide if not INFP
     }
 
-
+    // Call the backend to get the actual prediction
+    fetch("/predict", {
+        method: "POST",
+        body: JSON.stringify({ Text: text }),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.json())
+    .then(data => {
+        outputBox.innerHTML = `<div class="card">
+            <p>Predicted Personality: ${data.personality}</p>
+        </div>`;
+        // Hide infpCard if the personality is not INFP
+        if (data.personality !== "INFP") {
+            infpCard.style.display = "none";
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
 
   
