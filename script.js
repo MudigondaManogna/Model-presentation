@@ -49,5 +49,3 @@ function predictPersonality() {
     })
     .catch(error => console.error("Error:", error));
 }
-
-  
