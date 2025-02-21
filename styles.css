@@ -2,33 +2,31 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   
   /* General Layout */
   body {
     font-family: Arial, sans-serif;
-    background-image: url('https://i.pinimg.com/736x/b9/6b/fb/b96bfbf8541b7cc5c427853875fbc546.jpg');
-    background-size: cover;
+    background-image: url('personality prediction.jpeg');
+    background-size :cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll; /* Now background moves when scrolling */
-    min-height: 100%; /* Ensure background extends */
+    height: 100%; /* Ensure background extends */
     overflow-x: hidden;
 }
 
 
   .page-title{
-    text-align:center;
-    font-size: 26px;
+    font-size: 30px;
     font-weight:bold;
     margin-top:20px;
+    margin-left: 20px;
     margin-bottom: 10px;
-    color:rgb(106, 146, 0);;
+    color:#3B2F2F;
   }
   
   .container {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
     background: rgba(255, 255, 255, 0.3); /* Transparent white */
@@ -38,15 +36,17 @@
 }
 
 .input-text {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 10px;
-    border: none;
-    background: rgba(255, 255, 255, 0.6); /* Lighter transparency */
-    backdrop-filter: blur(1 px);
-    color: #333;
+  width: 80%;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  min-height: 500px; /* Increase height */
+  resize: vertical;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.8); /* Adjust transparency */
 }
+
 
 .input-text::placeholder {
     color: #555; /* Darker placeholder for readability */
@@ -104,8 +104,7 @@
 
   
   .predict-btn {
-    color:rgb(106, 146, 0);;
-    background-color:rgb(106, 146, 0);;
+    background-color:#B63D3D;
     color: white;
     padding: 10px 15px;
     font-size: 16px;
@@ -120,13 +119,13 @@
   /* Expand and compress effect on hover */
   .predict-btn:hover {
     transform: scale(1.1); /* Expands button to 110% */
-    background-color:rgb(66, 89, 2);
+    background-color:#882e2e;
   }
   
   /* Shrink back when not hovered */
   .predict-btn:active {
     transform: scale(0.9); /* Shrinks button to 90% */
-    background-color:rgb(106, 146, 0);
+    background-color:#B63D3D;
 
   }
   
